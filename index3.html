@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+</head>
+
+
+<body>
+
+<h1 id="load-data">The text will be changed</h1>
+
+<button class="btn btn-success" onclick="myFunction()">Click me</button>
+
+
+
+        <script>
+
+        function myFunction() {
+            
+            var req = new XMLHttpRequest();
+            req.open('GET','change.html',true);
+            req.send();
+
+            req.onreadystatechange = function()
+            {
+                if(req.readyState == 4 &&  req.status == 200)
+                {
+                    document.getElementById('load-data').innerHTML = req.responseText;
+                }
+            }
+
+        }
+
+
+
+        </script>
+
+</body>
+</html>
